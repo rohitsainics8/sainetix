@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern, animated website for Sainetix, a web development agency that provides cutting-edge solutions.">
+    <title>Sainetix - AI-Powered Web Development</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0"
+      }
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --bg-color: #05050A;
+            --primary-accent: #6366F1; /* indigo-500 */
+            --secondary-accent: #8B5CF6; /* purple-500 */
+            --text-primary: #F9FAFB; /* gray-50 */
+            --text-secondary: #9CA3AF; /* gray-400 */
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39sbGxvb29paP9ucnCvr6+ZmZmyoqAAAACUjKSQAAAAA3RSTlMAf4C/aPdKAAABdklEQVR42tWV25aDIAxFZEVBpZBW2633/3+9ATiKkK3Q2XMlMB29e5x5oJATx/Q379G0O/nX63M8dAjKa2/t2cbuwru3hYJ95hP8bJ+wP9aVIo5T4fA68+28d9I1SgcmWRsYACBAwAYACBd2gQACgQAwB4B8GgQAwBMgIAEAmAEAVsDBp/f3L19f/8YBYHQA4AEgQGAfAQAAGACsAXiQAhYSAJACwAxgHIC2AHAECBAAAQCAWIBsAVh5/b83Z2t/f3D23f++vAFgA2A1QHQAWATgCwAMgAESAFgAWAIA2gGgA9gJwA1gBQAggACAAgB9AABsAHiAiAAABNgbgAAC4A/gAQAwARiAKgAwAaAAGCAARgA2gKwAswAagHwARgAIAABgBwDTAPQBAIBEACQA4BxwAABsABIA8QHQAWACYAqgDQAggAARgGIA9gAWAJAB2ADgATAAkAEI/n8AfwAIAQMAf8YAAAAASUVORK5CYII=');
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: -1;
+            will-change: transform;
+        }
+
+        .form-checkbox:checked {
+            background-color: var(--primary-accent);
+            border-color: var(--primary-accent);
+        }
+        
+        /* For the logo scroller */
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        /* For the animated headline */
+        @keyframes gradient-pan {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* For the floating CTA */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* For the breathing aurora background blobs */
+        @keyframes blob-1-anim {
+            0% { transform: scale(1) translate(0px, 0px); }
+            33% { transform: scale(1.2) translate(30px, -50px); }
+            66% { transform: scale(0.9) translate(-20px, 20px); }
+            100% { transform: scale(1) translate(0px, 0px); }
+        }
+
+        @keyframes blob-2-anim {
+            0% { transform: scale(1) translate(0px, 0px); }
+            33% { transform: scale(1.1) translate(-40px, 30px); }
+            66% { transform: scale(0.8) translate(50px, -20px); }
+            100% { transform: scale(1) translate(0px, 0px); }
+        }
+
+
+        /* For the testimonial progress bar */
+        @keyframes progress-bar {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,455 @@
+import React, { useRef } from "react";
+import AnimatedSection from "./AnimatedSection";
+import CountUp from "react-countup";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
+
+// Icons
+import ReactIcon from "./icons/ReactIcon";
+import TailwindIcon from "./icons/TailwindIcon";
+import NextJSIcon from "./icons/NextJSIcon";
+import NodeJSIcon from "./icons/NodeJSIcon";
+import AWSIcon from "./icons/AWSIcon";
+import FigmaIcon from "./icons/FigmaIcon";
+import WordPressIcon from "./icons/WordPressIcon";
+import CanvaIcon from "./icons/CanvaIcon";
+import DesktopIcon from "./icons/DesktopIcon";
+import LayersIcon from "./icons/LayersIcon";
+import SupportIcon from "./icons/SupportIcon";
+import { CheckCircleIcon } from "lucide-react";
+
+// Tech stack
+const techStack = [
+  { icon: ReactIcon, name: "ReactJS" },
+  { icon: NextJSIcon, name: "NextJS" },
+  { icon: TailwindIcon, name: "TailwindCSS" },
+  { icon: NodeJSIcon, name: "NodeJS" },
+  { icon: AWSIcon, name: "AWS Cloud" },
+  { icon: FigmaIcon, name: "Figma" },
+  { icon: WordPressIcon, name: "WordPress" },
+  { icon: CanvaIcon, name: "Canva" },
+];
+
+const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
+  setActiveRoute,
+}) => {
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  const particlesInit = async (main: any) => {
+    await loadFull(main);
+  };
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    setActiveRoute(href.slice(1));
+  };
+
+  return (
+    <>
+      {/* ✅ HERO SECTION */}
+      <section
+        ref={heroRef}
+        className="relative min-h-screen flex flex-col md:flex-row items-center justify-between bg-zinc-950 overflow-hidden pt-24 md:pt-32 px-6 md:px-16"
+      >
+        <Particles
+          id="tsparticles"
+          init={particlesInit}
+          options={{
+            fullScreen: { enable: false },
+            particles: {
+              number: { value: 50 },
+              color: { value: "#8b5cf6" },
+              shape: { type: "circle" },
+              opacity: { value: 0.5 },
+              size: { value: { min: 1, max: 4 } },
+              move: { enable: true, speed: 1.5, outModes: "bounce" },
+              links: {
+                enable: true,
+                distance: 150,
+                color: "#a78bfa",
+                opacity: 0.4,
+                width: 1,
+              },
+            },
+            interactivity: {
+              events: { onHover: { enable: true, mode: "repulse" } },
+            },
+          }}
+          className="absolute inset-0 z-0"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-black z-0"></div>
+
+        {/* Left Side Image */}
+        <AnimatedSection delay="delay-400">
+          <div className="flex flex-1 justify-center items-center relative z-10 mb-12 md:mb-0">
+            <div className="relative w-full max-w-[560px] h-[350px] sm:h-[450px] rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="https://miro.medium.com/v2/1*4exbjhfgXA922WJa29zWKA.jpeg"
+                alt="Web Development"
+                className="w-full h-full object-cover rounded-2xl transition-transform duration-500 ease-in-out hover:-translate-y-2"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/10 to-transparent rounded-2xl blur-3xl pointer-events-none"></div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Right Side Text */}
+        <div className="flex-1 max-w-xl md:max-w-2xl relative z-10 text-center md:text-left">
+          <AnimatedSection>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
+              Empower Your{" "}
+              <span className="bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-400 text-transparent bg-clip-text animate-[gradient-pan_4s_ease-in-out_infinite]">
+                Web Vision
+              </span>
+            </h1>
+          </AnimatedSection>
+          <AnimatedSection delay="delay-200">
+            <p className="text-lg text-zinc-400 mb-10">
+              We build next-generation web apps blending AI, design, and
+              scalability.
+            </p>
+          </AnimatedSection>
+          <AnimatedSection delay="delay-600">
+            <a
+              href="#/ai-generator"
+              onClick={(e) => handleNavClick(e, "#/ai-generator")}
+              className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 md:py-4 px-8 md:px-10 rounded-lg shadow-lg shadow-indigo-600/30 transition-all transform hover:scale-105 inline-block"
+            >
+              Start with AI Generator
+            </a>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ✅ OUR CORE FEATURES */}
+      <section className="relative py-24 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white overflow-hidden">
+        <img
+          src="https://cdn.dribbble.com/userupload/12577466/file/original-d3cfa91d7b6167a9d0c59eb6aaf850a2.png?resize=1200x600"
+          alt="background pattern"
+          className="absolute opacity-10 inset-0 w-full h-full object-cover"
+        />
+        <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Our Core Features
+          </h2>
+          <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
+            We provide a complete suite of services to power your online growth.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                title: "Web Design",
+                desc: "Beautiful user-centric layouts that boost conversions.",
+                img: "https://5.imimg.com/data5/SELLER/Default/2024/6/428618412/UG/XU/MZ/130879460/website-landing-page-design.jpeg",
+              },
+              {
+                title: "Web Development",
+                desc: "Powerful, fast and scalable web apps using modern stacks.",
+                img: "https://www.creative-tim.com/blog/content/images/2022/01/which-development-job-is-right-for-you.jpg",
+              },
+              {
+                title: "24×7 Support",
+                desc: "Dedicated team always available via phone, chat, or email.",
+                img: "https://www.helpshift.com/wp-content/uploads/2024/05/Omni-channel-Home.png",
+              },
+            ].map((f, i) => (
+              <div
+                key={i}
+                className="group bg-white/5 border border-indigo-500/40 rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/30 transition-all duration-300"
+              >
+                <img
+                  src={f.img}
+                  alt={f.title}
+                  className="w-full h-52 object-cover opacity-90 group-hover:opacity-100 transition-all"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{f.title}</h3>
+                  <p className="text-zinc-400">{f.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ THE SAINETIX ADVANTAGE */}
+      <section className="py-24 bg-gradient-to-b from-black via-zinc-950 to-black text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 bg-[url('https://cdn.dribbble.com/users/2064699/screenshots/14544318/media/3ef49f6d5a503eb147acb67b662dd0b0.png')] bg-cover bg-center" />
+        <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            The Sainetix Advantage
+          </h2>
+          <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
+            Blending AI precision with human creativity.
+          </p>
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                icon: DesktopIcon,
+                title: "AI Integration",
+                desc: "Automation and smart systems that save time.",
+              },
+              {
+                icon: FigmaIcon,
+                title: "Pixel-Perfect Design",
+                desc: "Every element crafted with detail and emotion.",
+              },
+              {
+                icon: LayersIcon,
+                title: "Scalable Architecture",
+                desc: "Grow your business on solid foundations.",
+              },
+              {
+                icon: SupportIcon,
+                title: "Dedicated Support",
+                desc: "Always there when you need help or improvements.",
+              },
+            ].map((adv, i) => (
+              <div
+                key={i}
+                className="p-8 bg-white/5 rounded-2xl border border-indigo-500/40 hover:border-indigo-400 transition-all hover:-translate-y-2 hover:shadow-lg hover:shadow-indigo-900/30"
+              >
+                <adv.icon className="w-10 h-10 text-indigo-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2">{adv.title}</h3>
+                <p className="text-zinc-400">{adv.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ OUR WEB SOLUTIONS */}
+<section className="py-24 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white relative overflow-hidden">
+  <img
+    src="https://cdn.dribbble.com/userupload/11908648/file/original-f6e11a26d2a1b3a8bfbcd32de9e814f2.png?resize=1200x600"
+    alt="background"
+    className="absolute inset-0 w-full h-full object-cover opacity-5"
+  />
+
+  <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
+    <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Web Solutions</h2>
+    <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
+      From startups to enterprises, we deliver scalable web experiences.
+    </p>
+
+    <div className="grid md:grid-cols-3 gap-10">
+      {[
+        {
+          title: "Business Websites",
+          desc: "Showcase your brand with a modern, high-converting site.",
+          img: "https://colorlib.com/wp/wp-content/uploads/sites/2/consultingbiz-free-template.jpeg",
+        },
+        {
+          title: "E-commerce Platforms",
+          desc: "Sell online with secure and lightning-fast stores.",
+          img: "https://www.addwebsolution.com/wp-content/uploads/2024/03/building-an-ecommerce-website-cost.png",
+        },
+        {
+          title: "School Management Systems",
+          desc: "Automate student, fee, and result management.",
+          img: "https://5.imimg.com/data5/SELLER/Default/2024/12/471870325/RF/XG/BG/159233823/school-management-website-development-500x500.png",
+        },
+        {
+          title: "Portfolio Websites",
+          desc: "Present your work beautifully with responsive design.",
+          img: "https://themewagon.com/wp-content/uploads/2025/08/Picto.webp",
+        },
+        {
+          title: "AI-Powered Apps",
+          desc: "Integrate automation, chatbots, and analytics.",
+          img: "https://www.addevice.io/storage/ckeditor/uploads/images/64d0d134548fa_building.ai.powered.chatbots.1920.1080.1.png",
+        },
+        {
+          title: "Custom Web Solutions",
+          desc: "Tailored applications built for your goals.",
+          img: "https://www.bu.edu/lernet/artemis/years/2020/projects/FinalPresentations/HTML/webdesign.jpg",
+        },
+      ].map((item, i) => (
+        <div
+          key={i}
+          className="group bg-white/5 border border-indigo-500/40 rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/30 transition-all duration-300"
+        >
+          <img
+            src={item.img}
+            alt={item.title}
+            className="w-full h-52 object-cover opacity-90 group-hover:opacity-100 transition-all"
+          />
+          <div className="p-6">
+            <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+            <p className="text-zinc-400">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+      {/* ✅ TECH STACK */}
+      <section className="py-24 bg-gradient-to-b from-black via-zinc-950 to-black text-white">
+        <div className="container max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Tech Stack We Use
+          </h2>
+          <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
+            Industry-leading tools and frameworks for top-notch performance.
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+            {techStack.map((tech, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center p-6 bg-white/5 rounded-xl border border-indigo-500/50 hover:border-indigo-400 hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-900/20 transition-all"
+              >
+                <tech.icon className="w-12 h-12 text-indigo-400 mb-4" />
+                <p className="text-white font-semibold">{tech.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ OUR SUCCESS STORIES */}
+<section className="py-24 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white relative overflow-hidden">
+  {/* Subtle background pattern */}
+  <img
+    src="https://cdn.dribbble.com/userupload/14974647/file/original-0e4dd0ab8bde56f6e5a761e96e71c1d8.png?resize=1200x600"
+    alt="background"
+    className="absolute inset-0 w-full h-full object-cover opacity-5"
+  />
+
+  <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
+    <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Success Stories</h2>
+    <p className="text-lg text-zinc-400 mb-16">
+      Real results for real businesses.
+    </p>
+
+    <div className="grid md:grid-cols-3 gap-10">
+      {[
+        {
+          title: "Retail E-commerce Boost",
+          result: 180,
+          metric: "% Increase in Sales",
+          desc: "We built a lightning-fast eCommerce store using Next.js and Node.js that boosted conversions by 180%.",
+          img: "https://digitology.co/wp-content/uploads/2023/03/e-commerce-wb.png",
+        },
+        {
+          title: "School ERP Automation",
+          result: 400,
+          metric: "Schools Onboarded",
+          desc: "Our School Management ERP automated student, fee, and results for 400+ institutes.",
+          img: "https://www.skoolbeep.com/blog/wp-content/uploads/2021/01/SCHOOL-ERP-MODULES.png",
+        },
+        {
+          title: "Portfolio Builder SaaS",
+          result: 5000,
+          metric: "+ Active Users",
+          desc: "Developed a SaaS platform for creators to design and host portfolios — now used by 5K+ professionals.",
+          img: "https://cdn.prod.website-files.com/62c5836076839ad95e36215d/64fb2b64316862df3d2e099a_rcQYosTUaQ6hiJSAk7JphBXJCcZpPSAnq6u8U_3pnj0UVcHM5niGdGNBZ625bnZmRDTg4UQFOjd8tuczIfNSZ7JQeRBtnY4NHvGyGjRBe_DVE4QiDsVy9vcllRT7B1Ut7wx9CBDr945F26Um1hF4xM4.png",
+        },
+      ].map((cs, i) => (
+        <div
+          key={i}
+          className="group bg-white/5 border border-indigo-500/40 rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/30 transition-all duration-300"
+        >
+          {/* Project Image */}
+          <div className="relative overflow-hidden">
+            <img
+              src={cs.img}
+              alt={cs.title}
+              className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-70"></div>
+            <div className="absolute bottom-4 left-4 text-left">
+              <h3 className="text-lg font-semibold text-white">{cs.title}</h3>
+            </div>
+          </div>
+
+          {/* Details */}
+          <div className="p-6 text-center">
+            <p className="text-indigo-400 text-3xl font-bold mb-2">
+              <CountUp end={cs.result} duration={2} /> {cs.metric}
+            </p>
+            <p className="text-zinc-400 text-sm leading-relaxed">{cs.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+      {/* ✅ WHY CHOOSE SAINETIX */}
+      <section className="py-24 bg-black text-white">
+        <div className="container max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Why Choose Sainetix?
+          </h2>
+          <p className="text-lg text-zinc-400 mb-12 max-w-2xl mx-auto">
+            We go beyond development — we craft meaningful digital experiences.
+          </p>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                icon: CheckCircleIcon,
+                title: "On-Time Delivery",
+                desc: "We deliver projects on schedule with precision.",
+              },
+              {
+                icon: DesktopIcon,
+                title: "Modern Design",
+                desc: "Clean, intuitive, and engaging interfaces.",
+              },
+              {
+                icon: LayersIcon,
+                title: "Scalable Tech Stack",
+                desc: "Next.js, React, Node.js, and AWS for growth.",
+              },
+              {
+                icon: SupportIcon,
+                title: "After Launch Support",
+                desc: "Continuous maintenance and updates.",
+              },
+            ].map((adv, index) => (
+              <div
+                key={index}
+                className="p-8 bg-white/5 rounded-2xl border border-indigo-500/50 hover:border-indigo-400 hover:-translate-y-2 hover:shadow-xl transition-all"
+              >
+                <adv.icon className="w-10 h-10 text-indigo-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-3">{adv.title}</h3>
+                <p className="text-zinc-400">{adv.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ FINAL CTA */}
+      <section className="py-24 mt-12 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black">
+        <div className="container max-w-5xl mx-auto px-6">
+          <div className="relative bg-gradient-to-br from-indigo-600/50 to-purple-600/50 rounded-2xl p-12 text-center overflow-hidden">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Let’s Build Your Next Digital Success
+            </h2>
+            <p className="text-zinc-200 mb-8 max-w-2xl mx-auto">
+              Whether it’s a startup MVP or enterprise web platform, we’re ready
+              to make it happen.
+            </p>
+            <a
+              href="#/contact"
+              onClick={(e) => handleNavClick(e, "#/contact")}
+              className="bg-white text-indigo-700 font-semibold py-3 px-8 rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl transition-all"
+            >
+              Get in Touch
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default HomePage;
