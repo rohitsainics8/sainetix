@@ -49,89 +49,85 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
 
   return (
     <>
-      {/* ✅ HERO SECTION */}
-      <section
-        ref={heroRef}
-        className="relative min-h-screen flex flex-col md:flex-row items-center justify-between bg-zinc-950 overflow-hidden pt-24 md:pt-32 px-6 md:px-16"
+<section
+  ref={heroRef}
+  className="relative min-h-screen flex flex-col md:flex-row items-center justify-between bg-zinc-950 overflow-hidden pt-24 md:pt-32 px-6 md:px-20"
+>
+  {/* Particle Background */}
+  <Particles
+    id="tsparticles"
+    init={particlesInit}
+    options={{
+      fullScreen: { enable: false },
+      particles: {
+        number: { value: 60 },
+        color: { value: "#8b5cf6" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: { min: 1, max: 4 } },
+        move: { enable: true, speed: 1.6, outModes: "bounce" },
+        links: {
+          enable: true,
+          distance: 150,
+          color: "#a78bfa",
+          opacity: 0.4,
+          width: 1,
+        },
+      },
+      interactivity: {
+        events: { onHover: { enable: true, mode: "repulse" } },
+      },
+    }}
+    className="absolute inset-0 z-0"
+  />
+
+  <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-black z-0"></div>
+
+  {/* Left Side: Heading + Paragraph + Button */}
+  <AnimatedSection>
+    <div className="flex-1 max-w-xl md:max-w-2xl lg:max-w-3xl relative z-10 text-center md:text-left mb-10 md:mb-0">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 md:mb-6 leading-snug md:leading-tight">
+        Transforming Ideas into{" "}
+        <span className="bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-400 text-transparent bg-clip-text animate-[gradient-pan_4s_ease-in-out_infinite]">
+          Digital Reality
+        </span>
+      </h1>
+
+      <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-4 md:mb-6 leading-relaxed max-w-2xl">
+        We deliver top-quality <span className="text-white font-semibold">Web</span> and <span className="text-white font-semibold">App Development</span> solutions, 
+        powered by innovation and our <span className="text-indigo-400 font-medium">AI-driven vision</span>, helping your business grow smarter and faster.
+      </p>
+
+      <a
+        href="#/contact"
+        onClick={(e) => handleNavClick(e, "#/contact")}
+        className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 sm:py-3 md:py-4 px-6 sm:px-8 md:px-10 rounded-lg shadow-lg shadow-indigo-600/30 transition-all transform hover:scale-105 inline-block text-sm sm:text-base mt-0 sm:mt-4"
       >
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          options={{
-            fullScreen: { enable: false },
-            particles: {
-              number: { value: 50 },
-              color: { value: "#8b5cf6" },
-              shape: { type: "circle" },
-              opacity: { value: 0.5 },
-              size: { value: { min: 1, max: 4 } },
-              move: { enable: true, speed: 1.5, outModes: "bounce" },
-              links: {
-                enable: true,
-                distance: 150,
-                color: "#a78bfa",
-                opacity: 0.4,
-                width: 1,
-              },
-            },
-            interactivity: {
-              events: { onHover: { enable: true, mode: "repulse" } },
-            },
-          }}
-          className="absolute inset-0 z-0"
-        />
+        Get Your Project Started
+      </a>
+    </div>
+  </AnimatedSection>
 
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-black z-0"></div>
+  {/* Right Side: Image */}
+<AnimatedSection delay="delay-400">
+  <div className="flex flex-1 justify-center items-center relative z-10 -translate-y-12 md:translate-y-0">
+    <div className="relative w-full max-w-[650px] md:max-w-[700px] h-[220px] sm:h-[260px] md:h-[500px] lg:h-[560px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500">
+      <img
+        src="https://images.unsplash.com/photo-1566837945700-30057527ade0?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"
+        alt="Web and App Development"
+        className="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-700 ease-in-out"
+      />
+      <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-purple-500/10 to-transparent rounded-2xl blur-2xl pointer-events-none"></div>
+    </div>
+  </div>
+</AnimatedSection>
 
-        {/* Left Side Image */}
-        <AnimatedSection delay="delay-400">
-          <div className="flex flex-1 justify-center items-center relative z-10 mb-12 md:mb-0">
-            <div className="relative w-full max-w-[560px] h-[350px] sm:h-[450px] rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://miro.medium.com/v2/1*4exbjhfgXA922WJa29zWKA.jpeg"
-                alt="Web Development"
-                className="w-full h-full object-cover rounded-2xl transition-transform duration-500 ease-in-out hover:-translate-y-2"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 via-purple-500/10 to-transparent rounded-2xl blur-3xl pointer-events-none"></div>
-            </div>
-          </div>
-        </AnimatedSection>
+</section>
 
-        {/* Right Side Text */}
-        <div className="flex-1 max-w-xl md:max-w-2xl relative z-10 text-center md:text-left">
-          <AnimatedSection>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
-              Empower Your{" "}
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-400 text-transparent bg-clip-text animate-[gradient-pan_4s_ease-in-out_infinite]">
-                Web Vision
-              </span>
-            </h1>
-          </AnimatedSection>
-          <AnimatedSection delay="delay-200">
-            <p className="text-lg text-zinc-400 mb-10">
-              We build next-generation web apps blending AI, design, and
-              scalability.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay="delay-600">
-            <a
-              href="#/ai-generator"
-              onClick={(e) => handleNavClick(e, "#/ai-generator")}
-              className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 md:py-4 px-8 md:px-10 rounded-lg shadow-lg shadow-indigo-600/30 transition-all transform hover:scale-105 inline-block"
-            >
-              Start with AI Generator
-            </a>
-          </AnimatedSection>
-        </div>
-      </section>
 
       {/* ✅ OUR CORE FEATURES */}
       <section className="relative py-24 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white overflow-hidden">
-        <img
-          src="https://cdn.dribbble.com/userupload/12577466/file/original-d3cfa91d7b6167a9d0c59eb6aaf850a2.png?resize=1200x600"
-          alt="background pattern"
-          className="absolute opacity-10 inset-0 w-full h-full object-cover"
-        />
+    
         <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Our Core Features
@@ -225,12 +221,7 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
 
       {/* ✅ OUR WEB SOLUTIONS */}
 <section className="py-24 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white relative overflow-hidden">
-  <img
-    src="https://cdn.dribbble.com/userupload/11908648/file/original-f6e11a26d2a1b3a8bfbcd32de9e814f2.png?resize=1200x600"
-    alt="background"
-    className="absolute inset-0 w-full h-full object-cover opacity-5"
-  />
-
+  
   <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
     <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Web Solutions</h2>
     <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
@@ -315,11 +306,6 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
       {/* ✅ OUR SUCCESS STORIES */}
 <section className="py-24 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white relative overflow-hidden">
   {/* Subtle background pattern */}
-  <img
-    src="https://cdn.dribbble.com/userupload/14974647/file/original-0e4dd0ab8bde56f6e5a761e96e71c1d8.png?resize=1200x600"
-    alt="background"
-    className="absolute inset-0 w-full h-full object-cover opacity-5"
-  />
 
   <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
     <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Success Stories</h2>
