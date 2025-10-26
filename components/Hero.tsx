@@ -16,6 +16,9 @@ import CanvaIcon from "./icons/CanvaIcon";
 import DesktopIcon from "./icons/DesktopIcon";
 import LayersIcon from "./icons/LayersIcon";
 import SupportIcon from "./icons/SupportIcon";
+import SparklesIcon from './icons/SparklesIcon';
+import CollaborationIcon from './icons/CollaborationIcon';
+import BuildIcon from './icons/BuildIcon';
 import { CheckCircleIcon } from "lucide-react";
 
 // Tech stack
@@ -28,6 +31,29 @@ const techStack = [
   { icon: FigmaIcon, name: "Figma" },
   { icon: WordPressIcon, name: "WordPress" },
   { icon: CanvaIcon, name: "Canva" },
+];
+
+const whyChooseUs = [
+    {
+      icon: SparklesIcon,
+      title: "AI-Powered Efficiency",
+      desc: "We leverage cutting-edge AI to accelerate development, delivering smarter solutions faster than ever before.",
+    },
+    {
+      icon: CollaborationIcon,
+      title: "Transparent Process",
+      desc: "Our process is built on clear communication and collaboration, ensuring you're a partner in the project's success.",
+    },
+    {
+      icon: BuildIcon,
+      title: "Future-Proof Technology",
+      desc: "We use modern, scalable technologies to build websites and applications that are ready for tomorrow's challenges.",
+    },
+    {
+      icon: CheckCircleIcon,
+      title: "Client-Centric Approach",
+      desc: "Your business goals are our top priority. We focus on delivering results that make a real impact.",
+    },
 ];
 
 const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
@@ -50,48 +76,53 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
   return (
     <>
       {/* HERO SECTION */}
- <section
-  ref={heroRef}
-  className="relative min-h-screen flex flex-col-reverse md:flex-row items-center justify-between bg-indigo-950/90 overflow-hidden pt-24 md:pt-32 px-6 md:px-20"
->
-  {/* Left Side: Heading + Paragraph + Button */}
-  <AnimatedSection>
-    <div className="flex-1 max-w-xl md:max-w-2xl lg:max-w-3xl relative z-10 text-center md:text-left mb-10 md:mb-0">
-      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 md:mb-6 leading-snug md:leading-tight">
-        Transforming Ideas into{" "}
-        <span className="bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-400 text-transparent bg-clip-text animate-[gradient-pan_4s_ease-in-out_infinite]">
-          Digital Reality
-        </span>
-      </h1>
-      <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-4 md:mb-6 leading-relaxed max-w-2xl">
-        We deliver top-quality <span className="text-white font-semibold">Web</span> and{" "}
-        <span className="text-white font-semibold">App Development</span> solutions, powered by innovation and our{" "}
-        <span className="text-indigo-400 font-medium">AI-driven vision</span>, helping your business grow smarter and faster.
-      </p>
-      <a
-        href="#/contact"
-        onClick={(e) => handleNavClick(e, "#/contact")}
-        className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 sm:py-3 md:py-4 px-6 sm:px-8 md:px-10 rounded-lg shadow-lg shadow-indigo-600/30 transition-all transform hover:scale-105 inline-block text-sm sm:text-base mt-0 sm:mt-4"
+      <section
+        ref={heroRef}
+        className="relative min-h-screen flex items-center bg-indigo-950/90 overflow-hidden py-12"
       >
-        Get Your Project Started
-      </a>
-    </div>
-  </AnimatedSection>
+        <div className="container max-w-7xl mx-auto px-6">
+            <div className="flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-12 pt-20 md:pt-16">
+              
+              {/* Left Side: Heading + Paragraph + Button */}
+              <AnimatedSection className="w-full md:w-1/2 lg:w-3/5">
+                <div className="relative z-10 text-center md:text-left">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 md:mb-6 leading-tight">
+                    Transforming Ideas into{" "}
+                    <span className="bg-gradient-to-r from-indigo-400 via-purple-500 to-indigo-400 text-transparent bg-clip-text animate-[gradient-pan_4s_ease-in-out_infinite]">
+                      Digital Reality
+                    </span>
+                  </h1>
+                  <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
+                    We deliver top-quality <span className="text-white font-semibold">Web</span> and{" "}
+                    <span className="text-white font-semibold">App Development</span> solutions, powered by innovation and our{" "}
+                    <span className="text-indigo-400 font-medium">AI-driven vision</span>, helping your business grow smarter and faster.
+                  </p>
+                  <a
+                    href="#/contact"
+                    onClick={(e) => handleNavClick(e, "#/contact")}
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 sm:py-3 md:py-4 px-8 sm:px-8 md:px-10 rounded-lg shadow-lg shadow-indigo-600/30 transition-all transform hover:scale-105 inline-block text-sm sm:text-base"
+                  >
+                    Get Your Project Started
+                  </a>
+                </div>
+              </AnimatedSection>
 
-  {/* Right Side: Image */}
-  <AnimatedSection delay="delay-400">
-    <div className="flex flex-1 justify-center items-center relative z-10 translate-y-0 md:translate-y-0">
-      <div className="relative w-full max-w-[650px] md:max-w-[700px] h-[220px] sm:h-[260px] md:h-[500px] lg:h-[560px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500">
-        <img
-          src="https://images.unsplash.com/photo-1566837945700-30057527ade0?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"
-          alt="Web and App Development"
-          className="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-700 ease-in-out"
-        />
-        <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-purple-500/10 to-transparent rounded-2xl blur-2xl pointer-events-none"></div>
-      </div>
-    </div>
-  </AnimatedSection>
-</section>
+              {/* Right Side: Image */}
+              <AnimatedSection delay="delay-400" className="w-full md:w-1/2 lg:w-2/5 flex justify-center">
+                <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl">
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500">
+                    <img
+                      src="https://www.pngplay.com/wp-content/uploads/5/Graphic-Web-Design-Vector-PNG.png"
+                      alt="Web and App Development"
+                      className="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-700 ease-in-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-purple-500/10 to-transparent rounded-2xl blur-2xl pointer-events-none"></div>
+                  </div>
+                </div>
+              </AnimatedSection>
+            </div>
+        </div>
+      </section>
 
 
       {/* OUR CORE FEATURES */}
@@ -324,65 +355,21 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
       {/* WHY CHOOSE SAINETIX */}
       <section className="py-24 bg-purple-950 text-white">
         <div className="container max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose Sainetix?</h2>
-          <p className="text-lg text-zinc-400 mb-12 max-w-2xl mx-auto">
-            We go beyond development — we craft meaningful digital experiences.
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose Sainetix</h2>
+          <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
+            We're more than just developers; we're your dedicated partners in digital innovation and success.
           </p>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              {
-                icon: CheckCircleIcon,
-                title: "On-Time Delivery",
-                desc: "We deliver projects on schedule with precision.",
-              },
-              {
-                icon: DesktopIcon,
-                title: "Modern Design",
-                desc: "Clean, intuitive, and engaging interfaces.",
-              },
-              {
-                icon: LayersIcon,
-                title: "Scalable Tech Stack",
-                desc: "Next.js, React, Node.js, and AWS for growth.",
-              },
-              {
-                icon: SupportIcon,
-                title: "After Launch Support",
-                desc: "Continuous maintenance and updates.",
-              },
-            ].map((adv, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {whyChooseUs.map((item, i) => (
               <div
-                key={index}
-                className="p-8 bg-white/5 rounded-2xl border border-indigo-500/50 hover:border-indigo-400 hover:-translate-y-2 hover:shadow-xl transition-all"
+                key={i}
+                className="p-8 bg-white/5 rounded-2xl border border-purple-500/40 hover:border-purple-400 transition-all hover:-translate-y-2 hover:shadow-lg hover:shadow-purple-900/30"
               >
-                <adv.icon className="w-10 h-10 text-indigo-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-3">{adv.title}</h3>
-                <p className="text-zinc-400">{adv.desc}</p>
+                <item.icon className="w-10 h-10 text-purple-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-zinc-400 text-sm">{item.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="py-24 mt-12 bg-indigo-800">
-        <div className="container max-w-5xl mx-auto px-6">
-          <div className="relative bg-gradient-to-br from-indigo-600/50 to-purple-600/50 rounded-2xl p-12 text-center overflow-hidden">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Let’s Build Your Next Digital Success
-            </h2>
-            <p className="text-zinc-200 mb-8 max-w-2xl mx-auto">
-              Whether it’s a startup MVP or enterprise web platform, we’re ready
-              to make it happen.
-            </p>
-            <a
-              href="#/contact"
-              onClick={(e) => handleNavClick(e, "#/contact")}
-              className="bg-white text-indigo-700 font-semibold py-3 px-8 rounded-lg shadow-lg hover:scale-105 hover:shadow-2xl transition-all"
-            >
-              Get in Touch
-            </a>
           </div>
         </div>
       </section>
