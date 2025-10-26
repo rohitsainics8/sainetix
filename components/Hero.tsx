@@ -49,40 +49,11 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
 
   return (
     <>
-<section
+      {/* HERO SECTION */}
+ <section
   ref={heroRef}
-  className="relative min-h-screen flex flex-col md:flex-row items-center justify-between bg-zinc-950 overflow-hidden pt-24 md:pt-32 px-6 md:px-20"
+  className="relative min-h-screen flex flex-col-reverse md:flex-row items-center justify-between bg-indigo-950/90 overflow-hidden pt-24 md:pt-32 px-6 md:px-20"
 >
-  {/* Particle Background */}
-  <Particles
-    id="tsparticles"
-    init={particlesInit}
-    options={{
-      fullScreen: { enable: false },
-      particles: {
-        number: { value: 60 },
-        color: { value: "#8b5cf6" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5 },
-        size: { value: { min: 1, max: 4 } },
-        move: { enable: true, speed: 1.6, outModes: "bounce" },
-        links: {
-          enable: true,
-          distance: 150,
-          color: "#a78bfa",
-          opacity: 0.4,
-          width: 1,
-        },
-      },
-      interactivity: {
-        events: { onHover: { enable: true, mode: "repulse" } },
-      },
-    }}
-    className="absolute inset-0 z-0"
-  />
-
-  <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/40 via-purple-900/30 to-black z-0"></div>
-
   {/* Left Side: Heading + Paragraph + Button */}
   <AnimatedSection>
     <div className="flex-1 max-w-xl md:max-w-2xl lg:max-w-3xl relative z-10 text-center md:text-left mb-10 md:mb-0">
@@ -92,12 +63,11 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
           Digital Reality
         </span>
       </h1>
-
       <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-4 md:mb-6 leading-relaxed max-w-2xl">
-        We deliver top-quality <span className="text-white font-semibold">Web</span> and <span className="text-white font-semibold">App Development</span> solutions, 
-        powered by innovation and our <span className="text-indigo-400 font-medium">AI-driven vision</span>, helping your business grow smarter and faster.
+        We deliver top-quality <span className="text-white font-semibold">Web</span> and{" "}
+        <span className="text-white font-semibold">App Development</span> solutions, powered by innovation and our{" "}
+        <span className="text-indigo-400 font-medium">AI-driven vision</span>, helping your business grow smarter and faster.
       </p>
-
       <a
         href="#/contact"
         onClick={(e) => handleNavClick(e, "#/contact")}
@@ -109,29 +79,25 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
   </AnimatedSection>
 
   {/* Right Side: Image */}
-<AnimatedSection delay="delay-400">
-  <div className="flex flex-1 justify-center items-center relative z-10 -translate-y-12 md:translate-y-0">
-    <div className="relative w-full max-w-[650px] md:max-w-[700px] h-[220px] sm:h-[260px] md:h-[500px] lg:h-[560px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500">
-      <img
-        src="https://images.unsplash.com/photo-1566837945700-30057527ade0?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"
-        alt="Web and App Development"
-        className="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-700 ease-in-out"
-      />
-      <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-purple-500/10 to-transparent rounded-2xl blur-2xl pointer-events-none"></div>
+  <AnimatedSection delay="delay-400">
+    <div className="flex flex-1 justify-center items-center relative z-10 translate-y-0 md:translate-y-0">
+      <div className="relative w-full max-w-[650px] md:max-w-[700px] h-[220px] sm:h-[260px] md:h-[500px] lg:h-[560px] rounded-2xl overflow-hidden shadow-2xl transition-all duration-500">
+        <img
+          src="https://images.unsplash.com/photo-1566837945700-30057527ade0?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8"
+          alt="Web and App Development"
+          className="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-700 ease-in-out"
+        />
+        <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-purple-500/10 to-transparent rounded-2xl blur-2xl pointer-events-none"></div>
+      </div>
     </div>
-  </div>
-</AnimatedSection>
-
+  </AnimatedSection>
 </section>
 
 
-      {/* ✅ OUR CORE FEATURES */}
-      <section className="relative py-24 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white overflow-hidden">
-    
+      {/* OUR CORE FEATURES */}
+      <section className="relative py-24 bg-zinc-900 text-white overflow-hidden">
         <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Our Core Features
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Core Features</h2>
           <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
             We provide a complete suite of services to power your online growth.
           </p>
@@ -173,13 +139,11 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
         </div>
       </section>
 
-      {/* ✅ THE SAINETIX ADVANTAGE */}
-      <section className="py-24 bg-gradient-to-b from-black via-zinc-950 to-black text-white relative overflow-hidden">
+      {/* THE SAINETIX ADVANTAGE */}
+      <section className="py-24 bg-black text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5 bg-[url('https://cdn.dribbble.com/users/2064699/screenshots/14544318/media/3ef49f6d5a503eb147acb67b662dd0b0.png')] bg-cover bg-center" />
         <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            The Sainetix Advantage
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">The Sainetix Advantage</h2>
           <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
             Blending AI precision with human creativity.
           </p>
@@ -219,73 +183,70 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
         </div>
       </section>
 
-      {/* ✅ OUR WEB SOLUTIONS */}
-<section className="py-24 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white relative overflow-hidden">
-  
-  <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
-    <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Web Solutions</h2>
-    <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
-      From startups to enterprises, we deliver scalable web experiences.
-    </p>
+      {/* OUR WEB SOLUTIONS */}
+      <section className="py-24 bg-zinc-950 text-white relative overflow-hidden">
+        <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Web Solutions</h2>
+          <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
+            From startups to enterprises, we deliver scalable web experiences.
+          </p>
 
-    <div className="grid md:grid-cols-3 gap-10">
-      {[
-        {
-          title: "Business Websites",
-          desc: "Showcase your brand with a modern, high-converting site.",
-          img: "https://colorlib.com/wp/wp-content/uploads/sites/2/consultingbiz-free-template.jpeg",
-        },
-        {
-          title: "E-commerce Platforms",
-          desc: "Sell online with secure and lightning-fast stores.",
-          img: "https://www.addwebsolution.com/wp-content/uploads/2024/03/building-an-ecommerce-website-cost.png",
-        },
-        {
-          title: "School Management Systems",
-          desc: "Automate student, fee, and result management.",
-          img: "https://5.imimg.com/data5/SELLER/Default/2024/12/471870325/RF/XG/BG/159233823/school-management-website-development-500x500.png",
-        },
-        {
-          title: "Portfolio Websites",
-          desc: "Present your work beautifully with responsive design.",
-          img: "https://themewagon.com/wp-content/uploads/2025/08/Picto.webp",
-        },
-        {
-          title: "AI-Powered Apps",
-          desc: "Integrate automation, chatbots, and analytics.",
-          img: "https://www.addevice.io/storage/ckeditor/uploads/images/64d0d134548fa_building.ai.powered.chatbots.1920.1080.1.png",
-        },
-        {
-          title: "Custom Web Solutions",
-          desc: "Tailored applications built for your goals.",
-          img: "https://www.bu.edu/lernet/artemis/years/2020/projects/FinalPresentations/HTML/webdesign.jpg",
-        },
-      ].map((item, i) => (
-        <div
-          key={i}
-          className="group bg-white/5 border border-indigo-500/40 rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/30 transition-all duration-300"
-        >
-          <img
-            src={item.img}
-            alt={item.title}
-            className="w-full h-52 object-cover opacity-90 group-hover:opacity-100 transition-all"
-          />
-          <div className="p-6">
-            <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-            <p className="text-zinc-400">{item.desc}</p>
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                title: "Business Websites",
+                desc: "Showcase your brand with a modern, high-converting site.",
+                img: "https://colorlib.com/wp/wp-content/uploads/sites/2/consultingbiz-free-template.jpeg",
+              },
+              {
+                title: "E-commerce Platforms",
+                desc: "Sell online with secure and lightning-fast stores.",
+                img: "https://www.addwebsolution.com/wp-content/uploads/2024/03/building-an-ecommerce-website-cost.png",
+              },
+              {
+                title: "School Management Systems",
+                desc: "Automate student, fee, and result management.",
+                img: "https://5.imimg.com/data5/SELLER/Default/2024/12/471870325/RF/XG/BG/159233823/school-management-website-development-500x500.png",
+              },
+              {
+                title: "Portfolio Websites",
+                desc: "Present your work beautifully with responsive design.",
+                img: "https://themewagon.com/wp-content/uploads/2025/08/Picto.webp",
+              },
+              {
+                title: "AI-Powered Apps",
+                desc: "Integrate automation, chatbots, and analytics.",
+                img: "https://www.addevice.io/storage/ckeditor/uploads/images/64d0d134548fa_building.ai.powered.chatbots.1920.1080.1.png",
+              },
+              {
+                title: "Custom Web Solutions",
+                desc: "Tailored applications built for your goals.",
+                img: "https://www.bu.edu/lernet/artemis/years/2020/projects/FinalPresentations/HTML/webdesign.jpg",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="group bg-white/5 border border-indigo-500/40 rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/30 transition-all duration-300"
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-52 object-cover opacity-90 group-hover:opacity-100 transition-all"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <p className="text-zinc-400">{item.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
-      {/* ✅ TECH STACK */}
-      <section className="py-24 bg-gradient-to-b from-black via-zinc-950 to-black text-white">
+      {/* TECH STACK */}
+      <section className="py-24 bg-indigo-900 text-white">
         <div className="container max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Tech Stack We Use
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Tech Stack We Use</h2>
           <p className="text-lg text-zinc-400 mb-12 max-w-3xl mx-auto">
             Industry-leading tools and frameworks for top-notch performance.
           </p>
@@ -303,76 +264,67 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
         </div>
       </section>
 
-      {/* ✅ OUR SUCCESS STORIES */}
-<section className="py-24 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black text-white relative overflow-hidden">
-  {/* Subtle background pattern */}
+      {/* OUR SUCCESS STORIES */}
+      <section className="py-24 bg-zinc-800 text-white relative overflow-hidden">
+        <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Success Stories</h2>
+          <p className="text-lg text-zinc-400 mb-16">Real results for real businesses.</p>
 
-  <div className="container max-w-7xl mx-auto px-6 text-center relative z-10">
-    <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Success Stories</h2>
-    <p className="text-lg text-zinc-400 mb-16">
-      Real results for real businesses.
-    </p>
-
-    <div className="grid md:grid-cols-3 gap-10">
-      {[
-        {
-          title: "Retail E-commerce Boost",
-          result: 180,
-          metric: "% Increase in Sales",
-          desc: "We built a lightning-fast eCommerce store using Next.js and Node.js that boosted conversions by 180%.",
-          img: "https://digitology.co/wp-content/uploads/2023/03/e-commerce-wb.png",
-        },
-        {
-          title: "School ERP Automation",
-          result: 400,
-          metric: "Schools Onboarded",
-          desc: "Our School Management ERP automated student, fee, and results for 400+ institutes.",
-          img: "https://www.skoolbeep.com/blog/wp-content/uploads/2021/01/SCHOOL-ERP-MODULES.png",
-        },
-        {
-          title: "Portfolio Builder SaaS",
-          result: 5000,
-          metric: "+ Active Users",
-          desc: "Developed a SaaS platform for creators to design and host portfolios — now used by 5K+ professionals.",
-          img: "https://cdn.prod.website-files.com/62c5836076839ad95e36215d/64fb2b64316862df3d2e099a_rcQYosTUaQ6hiJSAk7JphBXJCcZpPSAnq6u8U_3pnj0UVcHM5niGdGNBZ625bnZmRDTg4UQFOjd8tuczIfNSZ7JQeRBtnY4NHvGyGjRBe_DVE4QiDsVy9vcllRT7B1Ut7wx9CBDr945F26Um1hF4xM4.png",
-        },
-      ].map((cs, i) => (
-        <div
-          key={i}
-          className="group bg-white/5 border border-indigo-500/40 rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/30 transition-all duration-300"
-        >
-          {/* Project Image */}
-          <div className="relative overflow-hidden">
-            <img
-              src={cs.img}
-              alt={cs.title}
-              className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-70"></div>
-            <div className="absolute bottom-4 left-4 text-left">
-              <h3 className="text-lg font-semibold text-white">{cs.title}</h3>
-            </div>
-          </div>
-
-          {/* Details */}
-          <div className="p-6 text-center">
-            <p className="text-indigo-400 text-3xl font-bold mb-2">
-              <CountUp end={cs.result} duration={2} /> {cs.metric}
-            </p>
-            <p className="text-zinc-400 text-sm leading-relaxed">{cs.desc}</p>
+          <div className="grid md:grid-cols-3 gap-10">
+            {[
+              {
+                title: "Retail E-commerce Boost",
+                result: 180,
+                metric: "% Increase in Sales",
+                desc: "We built a lightning-fast eCommerce store using Next.js and Node.js that boosted conversions by 180%.",
+                img: "https://digitology.co/wp-content/uploads/2023/03/e-commerce-wb.png",
+              },
+              {
+                title: "School ERP Automation",
+                result: 400,
+                metric: "Schools Onboarded",
+                desc: "Our School Management ERP automated student, fee, and results for 400+ institutes.",
+                img: "https://www.skoolbeep.com/blog/wp-content/uploads/2021/01/SCHOOL-ERP-MODULES.png",
+              },
+              {
+                title: "Portfolio Builder SaaS",
+                result: 5000,
+                metric: "+ Active Users",
+                desc: "Developed a SaaS platform for creators to design and host portfolios — now used by 5K+ professionals.",
+                img: "https://cdn.prod.website-files.com/62c5836076839ad95e36215d/64fb2b64316862df3d2e099a_rcQYosTUaQ6hiJSAk7JphBXJCcZpPSAnq6u8U_3pnj0UVcHM5niGdGNBZ625bnZmRDTg4UQFOjd8tuczIfNSZ7JQeRBtnY4NHvGyGjRBe_DVE4QiDsVy9vcllRT7B1Ut7wx9CBDr945F26Um1hF4xM4.png",
+              },
+            ].map((cs, i) => (
+              <div
+                key={i}
+                className="group bg-white/5 border border-indigo-500/40 rounded-2xl overflow-hidden hover:-translate-y-2 hover:shadow-2xl hover:shadow-indigo-900/30 transition-all duration-300"
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={cs.img}
+                    alt={cs.title}
+                    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-70"></div>
+                  <div className="absolute bottom-4 left-4 text-left">
+                    <h3 className="text-lg font-semibold text-white">{cs.title}</h3>
+                  </div>
+                </div>
+                <div className="p-6 text-center">
+                  <p className="text-indigo-400 text-3xl font-bold mb-2">
+                    <CountUp end={cs.result} duration={2} /> {cs.metric}
+                  </p>
+                  <p className="text-zinc-400 text-sm leading-relaxed">{cs.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
-      {/* ✅ WHY CHOOSE SAINETIX */}
-      <section className="py-24 bg-black text-white">
+      {/* WHY CHOOSE SAINETIX */}
+      <section className="py-24 bg-purple-950 text-white">
         <div className="container max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Why Choose Sainetix?
-          </h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose Sainetix?</h2>
           <p className="text-lg text-zinc-400 mb-12 max-w-2xl mx-auto">
             We go beyond development — we craft meaningful digital experiences.
           </p>
@@ -413,8 +365,8 @@ const HomePage: React.FC<{ setActiveRoute: (route: string) => void }> = ({
         </div>
       </section>
 
-      {/* ✅ FINAL CTA */}
-      <section className="py-24 mt-12 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black">
+      {/* FINAL CTA */}
+      <section className="py-24 mt-12 bg-indigo-800">
         <div className="container max-w-5xl mx-auto px-6">
           <div className="relative bg-gradient-to-br from-indigo-600/50 to-purple-600/50 rounded-2xl p-12 text-center overflow-hidden">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
