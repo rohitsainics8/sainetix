@@ -22,3 +22,20 @@ export interface WebsiteConcept {
   js: string;
   timestamp: number;
 }
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  content: string;
+  author: string;
+  category: string;
+  coverImage: string;
+  createdAt: number;
+  excerpt: string;
+}
+
+export interface Idea {
+  title: string;
+  description: string;
+}
